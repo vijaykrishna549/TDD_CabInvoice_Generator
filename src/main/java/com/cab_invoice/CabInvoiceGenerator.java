@@ -23,6 +23,15 @@ public class CabInvoiceGenerator {
        }
        return  fare;
     }
+
+    public double calculateTotalFare(Rides r){
+        double totalFare=0.0;
+
+        for(CabInvoiceGenerator ride: r.rides){
+            totalFare += ride.calculateFare();
+        }
+        return totalFare;
+    }
 }
 
 class Rides{
@@ -31,15 +40,6 @@ class Rides{
 
     public void addRide(CabInvoiceGenerator cIG){
         this.rides.add(cIG);
-    }
-
-    public double calculateTotalFare(){
-        double totalFare=0.0;
-
-        for(CabInvoiceGenerator ride: this.rides){
-            totalFare += ride.calculateFare();
-        }
-        return totalFare;
     }
 
 }
