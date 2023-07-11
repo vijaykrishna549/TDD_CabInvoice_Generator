@@ -32,6 +32,20 @@ public class CabInvoiceGenerator {
         }
         return totalFare;
     }
+
+    public int numberOfRides(Rides r){
+        int noOfRides=0;
+
+        for(CabInvoiceGenerator ride: r.rides){
+            noOfRides++;
+        }
+        return noOfRides;
+    }
+
+    public double averageFarePerRide(Rides r){
+        return this.calculateTotalFare(r)/this.numberOfRides(r);
+    }
+
 }
 
 class Rides{
